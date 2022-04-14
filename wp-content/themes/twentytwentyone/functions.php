@@ -640,3 +640,17 @@ function twentytwentyone_add_ie_class() {
 	<?php
 }
 add_action( 'wp_footer', 'twentytwentyone_add_ie_class' );
+
+//remove emjoi suppport
+
+remove_action("wp_head","print_emjoi-detection_script");
+remove_action("wp_print_styles", "print_emoji_styles");
+
+//remove feeds
+remove_action("wp_head","feed_link_extra",3);
+remove_action("wp_head","feed_links", 2);
+// remove wp-embed
+
+add_action("wp-footer", function(){
+	wp_dequeue_script("wp-embed");
+	});

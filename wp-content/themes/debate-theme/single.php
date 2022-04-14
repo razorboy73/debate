@@ -8,33 +8,20 @@
  */
 
 get_header();
-?>
 
-	<main id="primary" class="site-main">
 
-		<?php
-		while ( have_posts() ) :
-			the_post();
+add_post_meta(115,"fruit","apple", false);
+add_post_meta(115,"fruit","grape", false);
+add_post_meta(115,"fruit","liver", false);
 
-			get_template_part( 'template-parts/content', get_post_type() );
 
-			the_post_navigation(
-				array(
-					'prev_text' => '<span class="nav-subtitle">' . esc_html__( 'Previous:', 'debate' ) . '</span> <span class="nav-title">%title</span>',
-					'next_text' => '<span class="nav-subtitle">' . esc_html__( 'Next:', 'debate' ) . '</span> <span class="nav-title">%title</span>',
-				)
-			);
 
-			// If comments are open or we have at least one comment, load up the comment template.
-			if ( comments_open() || get_comments_number() ) :
-				comments_template();
-			endif;
+// print_r(get_post_meta(115, "fruit", ));
 
-		endwhile; // End of the loop.
-		?>
+ //delete_post_meta(115, 'fruit','liver');
 
-	</main><!-- #main -->
+// print_r(get_post_meta(115, "fruit", ));
 
-<?php
-get_sidebar();
+update_post_meta(115,"fruit","penis","apple");
+
 get_footer();
