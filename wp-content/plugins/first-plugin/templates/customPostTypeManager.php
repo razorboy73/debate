@@ -1,0 +1,1 @@
+<h1>Custom Post Type Manager As A Callback Function</h1>
