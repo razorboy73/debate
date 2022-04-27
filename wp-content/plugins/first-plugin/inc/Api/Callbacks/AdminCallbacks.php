@@ -37,8 +37,21 @@ use Inc\Base\BaseController;
     return require_once("$this->plugin_path/templates/customWidgets.php");
     } 
 
+   public function firstPluginOptionGroup($input){
+      return $input;
 
+   }
 
+   public function firstPluginAdminSection(){
+     echo "This is a great section";
+
+   }
+
+   public function firstPluginTextExample(){
+      $value = esc_attr(get_option("text_example"));
+      echo "<input type='text' class='regular-text' name='text_example' value='".$value."' placeholder='text example'>";
+
+   }
 
 
  }

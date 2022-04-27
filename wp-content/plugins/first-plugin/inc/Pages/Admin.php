@@ -56,14 +56,15 @@ use \Inc\Api\Callbacks\AdminCallbacks;
 
       
     // }
-
-    
     public function register(){
-
       $this->settings = new SettingsApi();
       $this->callbacks = new AdminCallbacks();
       $this->setPages();
       $this->setSubPages();
+      $this->setSettings();
+      $this->setSections();
+      $this->setFields();
+
       //remove the add action method, use the addpages method inside the setting class
       //add_action("admin_menu", array($this, "add_admin_pages"));
       //after the addPages is returned, call register function within
@@ -98,7 +99,7 @@ use \Inc\Api\Callbacks\AdminCallbacks;
 
         $this->subpages = 
       //each array is representative of a sub page we want to gnerate.
-      [
+        [
             [
               "parent_slug"=>"first_plugin",
               "page_title"=> "Custom Post Types",
@@ -106,7 +107,6 @@ use \Inc\Api\Callbacks\AdminCallbacks;
               "capability"=> "manage_options",
               "menu_slug"=> "firstplugin_CPT",
               "callback" => array($this->callbacks,"customPostTypeManager")
-
             ],
             [
               "parent_slug"=>"first_plugin",
@@ -115,7 +115,6 @@ use \Inc\Api\Callbacks\AdminCallbacks;
               "capability"=> "manage_options",
               "menu_slug"=> "firstplugin_Taxonomies",
               "callback" => array($this->callbacks,"customTaxonomies")
-
             ],
             [
               "parent_slug"=>"first_plugin",
@@ -124,17 +123,59 @@ use \Inc\Api\Callbacks\AdminCallbacks;
               "capability"=> "manage_options",
               "menu_slug"=> "firstplugin_widgets",
               "callback" => array($this->callbacks,"customWidgets")
-
             ],
-
-
-
-      ];
+        ];
 
       }
-    
-    
-    }
+      public function setSettings()
+      {
+        $args = array(
+          array(
+            //needs to be reapeated for every option
+            "option_group"=>"first_plugin_options_group",
+            "option_name"=>"text_example",
+            "callback"=>array($this->callbacks,"firstPluginOptionGroup")
+            )
+        );
+      $this->settings->setSettings($args);
+      }
+ 
+
+
+      public function setSections()
+      {
+        $args = array(
+          array(
+            //needs to be reapeated for every option
+            "id"=>"first_plugin_admin_index",
+            "title"=>"Settings",
+            "callback"=>array($this->callbacks,"firstPluginAdminSection"),
+            "page" => "first_plugin"
+            )
+        );
+      $this->settings->setSections($args);
+      }
+      public function setFields()
+      {
+        $args = array(
+          array(
+            //needs to be reapeated for every option
+            "id"=>"text_example", //option name from settings needs to be identical to name of field
+            "title"=>"Text Example",
+            "callback"=>array($this->callbacks,"firstPluginTextExample"),
+            "page" => "first_plugin",
+            "section" => "first_plugin_admin_index",
+            "args" => array(
+              "label_for"=>"text_example",
+              "class" => "exmaple-class"
+      
+            )
+            )
+        );
+      $this->settings->setFields($args);
+      }
+}
+
 
    //add menue page for administration
    //removed this section after we added Settings API
