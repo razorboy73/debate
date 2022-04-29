@@ -53,5 +53,11 @@ use Inc\Base\BaseController;
 
    }
 
+   public function firstPluginFirstName(){
+      $value = esc_attr(get_option("first_name"));
+      echo "<input type='text' class='regular-text' name='first_name' value='".$value."' placeholder='Enter Your First Name'>";
+
+   }
+
 
  }

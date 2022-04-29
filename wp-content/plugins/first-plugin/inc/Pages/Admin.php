@@ -135,7 +135,15 @@ use \Inc\Api\Callbacks\AdminCallbacks;
             "option_group"=>"first_plugin_options_group",
             "option_name"=>"text_example",
             "callback"=>array($this->callbacks,"firstPluginOptionGroup")
-            )
+          ),
+          array(
+            //needs to be reapeated for every option
+            //keep the same option group
+            "option_group"=>"first_plugin_options_group",
+            "option_name"=>"first_name"
+            // "callback"=>array($this->callbacks,"firstPluginOptionGroup")
+          ),
+
         );
       $this->settings->setSettings($args);
       }
@@ -167,10 +175,23 @@ use \Inc\Api\Callbacks\AdminCallbacks;
             "section" => "first_plugin_admin_index",
             "args" => array(
               "label_for"=>"text_example",
-              "class" => "exmaple-class"
+              "class" => "example-class"
       
             )
-            )
+            ),
+            array(
+              //needs to be reapeated for every option
+              "id"=>"first_name", //option name from settings needs to be identical to name of field
+              "title"=>"First Name",
+              "callback"=>array($this->callbacks,"firstPluginFirstName"),
+              "page" => "first_plugin",
+              "section" => "first_plugin_admin_index",
+              "args" => array(
+                "label_for"=>"first_example",
+                "class" => "example-class"
+        
+              )
+              )
         );
       $this->settings->setFields($args);
       }
