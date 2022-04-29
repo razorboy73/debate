@@ -1,0 +1,14 @@
+{
+  "name": "first-plugin",
+  "version": "1.0.0",
+  "description": "Gulp file for first plugin",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Josh",
+  "license": "GPL-3.0",
+  "devDependencies": {
+    "gulp": "^4.0.2"
+  }
+}
