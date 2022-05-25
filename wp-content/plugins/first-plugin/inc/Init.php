@@ -15,6 +15,8 @@
 
 namespace Inc;
 
+
+
 //by convention with psr - name the file and class the same
  final class Init
  {
@@ -31,8 +33,17 @@ namespace Inc;
             //return the entire class
             //if we didnt include the class, we are returning the file
             //by returning the class, you can use the register_services()
-            Pages\Admin::class,
+            Pages\Dashboard::class,
             Base\Enqueue::class,
+            Base\CustomPostTypeController::class,
+            Base\CustomTaxonomyController::class,
+            Base\WidgetController::class,
+            Base\GalleryController::class,
+            Base\TestimonialController::class,
+            Base\TemplatesController::class,
+            Base\LoginController::class,
+            Base\MembershipController::class,
+            Base\ChatController::class,
             Base\SettingsLinks::class
             //Cant include activation/deactivtion hooks as they need to  be outside
             //of any class in order for the triggering to work

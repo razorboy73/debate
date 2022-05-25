@@ -50,6 +50,7 @@ use Deactivate;
 function activate_first_plugin(){
     //calls static method of class
     Inc\Base\Activate::activate();
+    //we can use this method to store an array with everything set to false to initialize the plugin
 
 }
 register_activation_hook( __FILE__, "activate_first_plugin" );

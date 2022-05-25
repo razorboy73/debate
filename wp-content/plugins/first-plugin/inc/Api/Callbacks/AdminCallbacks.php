@@ -37,15 +37,45 @@ use Inc\Base\BaseController;
     return require_once("$this->plugin_path/templates/customWidgets.php");
     } 
 
-   public function firstPluginOptionGroup($input){
-      return $input;
+    public function adminGallery()
+	{
+		echo "<h1>Gallery Manager</h1>";
+	}
 
-   }
+   public function adminTestimonial()
+	{
+		echo "<h1>Testimonial Manager</h1>";
+	}
 
-   public function firstPluginAdminSection(){
-     echo "This is a great section";
+   public function adminTemplates()
+	{
+		echo "<h1>Template Manager</h1>";
+	}
 
-   }
+   public function adminLogin()
+	{
+		echo "<h1>Login Manager</h1>";
+	}
+
+   public function adminMembership()
+	{
+		echo "<h1>Membership Manager</h1>";
+	}
+
+   public function adminChat()
+	{
+		echo "<h1>Chat Manager</h1>";
+	}
+
+   // public function firstPluginOptionGroup($input){
+   //    return $input;
+
+   // }
+
+   // public function firstPluginAdminSection(){
+   //   echo "This is a great section";
+
+   // }
 
    public function firstPluginTextExample(){
       $value = esc_attr(get_option("text_example"));

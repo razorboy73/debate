@@ -25,7 +25,7 @@
 
     public function register(){
         //every time we initialize  class, we dont use construct
-        if(!empty($this->admin_pages)){
+        if(!empty($this->admin_pages)|| !empty($this->admin_subpages)){
             //if the array isnt empty, call another class
             //hooks the default menu activation method
             add_action("admin_menu", array($this,"addAdminMenu"));

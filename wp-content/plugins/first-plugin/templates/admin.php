@@ -16,7 +16,7 @@
 
                 //print out the settings fields by specifying the Id of the options group
 
-                settings_fields("first_plugin_options_group");
+                settings_fields("first_plugin_settings");
                 // do settings uses the slug of the page, not the Id of the section
                 do_settings_sections("first_plugin");
                 submit_button();
